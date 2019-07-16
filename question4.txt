@@ -1,0 +1,114 @@
+Security gropu rules for baastion host
+{
+    "SecurityGroups": [
+        {
+            "Description": "launch-wizard-334 created 2019-07-16T11:13:06.528+05:30",
+            "GroupName": "launch-wizard-kishan",
+            "IpPermissions": [
+                {
+                    "FromPort": 22,
+                    "IpProtocol": "tcp",
+                    "IpRanges": [
+                        {
+                            "CidrIp": "59.152.53.168/30",
+                            "Description": "ssh to bastion "
+                        },
+                        {
+                            "CidrIp": "59.152.53.104/29",
+                            "Description": "ssh to bastion"
+                        },
+                        {
+                            "CidrIp": "59.152.53.200/29",
+                            "Description": "ssh to bastion"
+                        },
+                        {
+                            "CidrIp": "59.152.53.120/29",
+                            "Description": "ssh to bastion"
+                        },
+                        {
+                            "CidrIp": "59.152.52.104/29",
+                            "Description": "ssh to bastion"
+                        },
+                        {
+                            "CidrIp": "59.152.52.152/29",
+                            "Description": "ssh to bastion"
+                        },
+                        {
+                            "CidrIp": "59.152.52.172/30",
+                            "Description": "ssh to bastion"
+                        },
+                        {
+                            "CidrIp": "202.122.21.69/32",
+                            "Description": "ssh to bastion"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": [],
+                    "ToPort": 22,
+                    "UserIdGroupPairs": []
+                }
+            ],
+            "OwnerId": "488599217855",
+            "GroupId": "sg-03d63ce2fe2f53e35",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": [],
+                    "UserIdGroupPairs": []
+                }
+            ],
+            "VpcId": "vpc-0615bf86862455181"
+        }
+    ]
+}
+
+Security group rules for private instances
+
+{
+    "SecurityGroups": [
+        {
+            "Description": "launch-wizard-334 created 2019-07-16T11:16:45.528+05:30",
+            "GroupName": "launch-wizard-kishan-private",
+            "IpPermissions": [
+                {
+                    "FromPort": 22,
+                    "IpProtocol": "tcp",
+                    "IpRanges": [
+                        {
+                            "CidrIp": "172.31.81.28/32",
+                            "Description": "ssh from bastion "
+                        },
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": [],
+                    "ToPort": 22,
+                    "UserIdGroupPairs": []
+                }
+            ],
+            "OwnerId": "488599217855",
+            "GroupId": "sg-0d4d504d3db52d883",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": [],
+                    "UserIdGroupPairs": []
+                }
+            ],
+            "VpcId": "vpc-0615bf86862455181"
+        }
+    ]
+}
+
+
