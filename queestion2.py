@@ -8,9 +8,12 @@ import PIL.Image
 
      
 def resize_image(image_path, resized_path):
-    with Image.open(image_path) as image:
-        image.thumbnail(tuple(x / 2 for x in image.size))
-        image.save(resized_path)
+        basewidth=200
+        with Image.open(image_path) as image:
+                wpercent = (basewidth / float(image.size[0]))
+                hsize = int((float(image.size[1]) * float(wpercent)))
+                img = image.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
+                img.save(resized_path)
      
 def lambda_handler(event, context):
     s3_client = boto3.client('s3',region_name='us-east-1')
